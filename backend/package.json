@@ -1,0 +1,38 @@
+{
+  "name": "githubtrendingcli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@oclif/core": "^4.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "octokit": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2"
+  },
+  "bin": {
+    "GithubTrendingCLI": "./bin/run.js"
+  },
+  "oclif": {
+    "bin": "GithubTrendingCLI",
+    "commands": "./dist/commands",
+    "dirname": "GithubTrendingCLI",
+    "topicSeparator": " ",
+    "hooks": {
+      "init": "./dist/hooks/init/my-hook"
+    }
+  }
+}
