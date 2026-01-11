@@ -84,17 +84,28 @@ cd basics/GithubTrendingCLI/trendingRepoCLI
 npm install
 ```
 
-3. Run the CLI in development (uses `ts-node` via `bin/dev.js`):
+3. Run the CLI in development (local executable `gt` / `github-trending`):
 
 ```bash
-./bin/dev.js trending-repo --duration week --limit 10
+# If you have linked or installed the CLI, run using the new executable names:
+gt trending-repo --duration week --limit 10
+# or
+github-trending trending-repo --duration week --limit 10
 ```
 
-Or after building the CLI:
+Or run the CLI directly from the built output:
 
 ```bash
 npm run build
 node ./dist/index.js trending-repo --duration week --limit 10
+```
+
+If you'd like to use `gt` (or `github-trending`) locally without rebuilding every time, you can link the package:
+
+```bash
+cd basics/GithubTrendingCLI/trendingRepoCLI
+npm link
+# now `gt` or `github-trending` should be available globally in your shell
 ```
 
 The CLI expects the backend to be running on `http://localhost:3000` and will show a short ranked list like:

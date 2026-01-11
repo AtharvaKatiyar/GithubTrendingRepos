@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "author": "AtharvaKatiyar",
   "bin": {
-    "cli": "./bin/run.js"
+    "cli": "./bin/run.js",
+    "github-trending": "./bin/run.js",
+    "gt": "./bin/run.js"
   },
   "bugs": "https://github.com/AtharvaKatiyar/GithubTrendingRepos/issues",
   "dependencies": {
