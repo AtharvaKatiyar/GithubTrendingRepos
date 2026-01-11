@@ -1,6 +1,8 @@
 
 # GithubTrendingCLI
 
+Github repo link: `https://github.com/AtharvaKatiyar/GithubTrendingRepos`
+
 Important: this project provides a hosted backend (deployed on Render) and a local backend. The CLI prefers the deployed backend at `https://githubtrendingrepos.onrender.com` and will automatically fall back to `http://localhost:3000` only when the deployed service is unreachable. Run the local backend only if the deployed site is unavailable or you need to modify the server.
 
 A small project that provides a backend service to fetch trending GitHub repositories and a lightweight CLI to display them. The repository contains two parts:
