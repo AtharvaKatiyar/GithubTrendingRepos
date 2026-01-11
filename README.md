@@ -116,6 +116,18 @@ The CLI expects the backend to be running on `http://localhost:3000` and will sh
 ...
 ```
 
+**Deployed Backend & Auto-detection**
+- This project includes a deployed backend (Render) at `https://githubtrendingrepos.onrender.com`. The CLI will attempt to use that deployed URL first and automatically fall back to `http://localhost:3000` if the deployed service is not reachable.
+- The auto-detection is implemented in `trendingRepoCLI/src/service/backend-url.ts` (used by `trendingRepoCLI/src/commands/trending-repo.ts`). You can open those files to see the exact behavior.
+
+How it works:
+- `getBackendURL()` pings the deployed URL's `/health` endpoint with a short timeout. If reachable, the CLI uses the deployed URL. If not, it uses the local backend URL.
+
+Override the backend URL
+- To force the CLI to use a specific backend, edit `trendingRepoCLI/src/service/backend-url.ts` and change the `BACKEND_URL` or `LOCAL_BACKEND_URL` constants. For example, to force local-only use, set `const BACKEND_URL = ''` or remove/empty the deployed URL.
+- Alternatively you can modify `trendingRepoCLI/src/commands/trending-repo.ts` to read a runtime environment variable and use that value (recommended if you prefer configuration without editing source).
+
+
 **Troubleshooting**
 - If the CLI prints `Backend server is not reachable`, ensure the backend is running and accessible at `http://localhost:3000`.
 - If you see API rate limit errors, add a `GITHUB_TOKEN` and (optionally) update `backend/services/githubService.js` to authenticate the Octokit client with it.

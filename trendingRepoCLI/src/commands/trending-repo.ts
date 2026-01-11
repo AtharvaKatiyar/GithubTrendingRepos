@@ -1,5 +1,6 @@
 import {Args, Command, Flags} from '@oclif/core'
 import axios from 'axios';
+import { getBackendURL } from '../service/backend-url.js';
 export default class TrendingRepo extends Command {
   static override args = {
     file: Args.string({description: 'file to read'}),
@@ -35,12 +36,14 @@ export default class TrendingRepo extends Command {
 
   public async run(): Promise<void> {
     const {flags} = await this.parse(TrendingRepo)
+    const baseUrl = await getBackendURL();
     try{
-      const response = await axios.get('http://localhost:3000/api/repos/trending', {
+      const response = await axios.get(`${baseUrl}/api/repos/trending`, {
         params:{
           duration: flags.duration,
           limit: flags.limit
-        }
+        },
+        timeout: 30000
       })
       const repos = response.data
       repos.forEach((repo: any, index: number) => {

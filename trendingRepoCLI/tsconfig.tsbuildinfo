@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/commands/trending-repo.ts"],"version":"5.9.3"}
+{"root":["./src/index.ts","./src/commands/trending-repo.ts","./src/service/backend-url.ts"],"version":"5.9.3"}
